@@ -22,7 +22,7 @@ class Preprocessor:
         """
         pass
 
-    def preprocess(self, ecg: Image) -> Tuple[Image, Rectangle]:
+    def preprocess(self, ecg: Image) -> Image:
         """
         Preprocess and ECG image.
 
@@ -33,11 +33,11 @@ class Preprocessor:
             Tuple[Image, Rectangle]: A cropped image of the ECG signals binarized
                 and the rectangle of the area cropped with respect to the original image.
         """
-        ecg = ecg.copy()
-        rect = self.__img_partitioning(ecg)
-        ecg.crop(rect)
+        #ecg = ecg.copy()
+        #rect = self.__img_partitioning(ecg)
+        #ecg.crop(rect)
         ecg = self.__gridline_removal(ecg)
-        return (ecg, rect)
+        return ecg
 
     def __img_partitioning(self, ecg: Image) -> Rectangle:
         """
